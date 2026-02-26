@@ -1,17 +1,1133 @@
-# Método 21 Dias: Como Parar de Fumar - Página de Vendas
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-Esta pasta contém uma página de vendas completa, responsiva e pronta para uso.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Método 21 Dias – Como Parar de Fumar Sem Sofrer. Um guia passo a passo para reduzir a ansiedade e quebrar o hábito.">
+    <title>Método 21 Dias – Como Parar de Fumar Sem Sofrer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-## Conteúdo
-- `index.html`: O código fonte da página (HTML, CSS e Texto).
-- `hero.png`: A imagem de topo gerada exclusivamente para este projeto.
+    <style>
+        /* Reset & Base Styles */
+        :root {
+            --primary-color: #10B981;
+            /* Emerald 500 */
+            --primary-hover: #34d399;
+            /* Emerald 400 - Brighter hover */
+            --accent-color: #fbbf24;
+            /* Amber 400 */
+            --text-color: #e5e7eb;
+            /* Gray 200 */
+            --text-muted: #9ca3af;
+            /* Gray 400 */
+            --bg-body: #050505;
+            /* Almost Black */
+            --bg-card: rgba(23, 23, 23, 0.6);
+            /* Neutral 900 with opacity */
+            --bg-card-border: rgba(255, 255, 255, 0.08);
+            --white-text: #ffffff;
+            --font-main: 'Inter', sans-serif;
+            --glow-primary: 0 0 30px rgba(16, 185, 129, 0.2);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-## Como Usar
-1. Dê dois cliques no arquivo `index.html` para visualizar a página no seu navegador.
-2. Para publicar na internet, você pode fazer upload destes dois arquivos (`index.html` e `hero.png`) para qualquer hospedagem (ex: Netlify, Vercel, ou hospedagem tradicional).
-3. Para editar o texto ou o link do botão de compra, abra o arquivo `index.html` em um editor de texto (como o Bloco de Notas ou VS Code) e procure por "Quero o Método 21 Dias Agora".
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-## Detalhes
-- Cores otimizadas para passar confiança e calma (Verde-azulado, Dourado).
-- Fontes legíveis para facilitar a leitura no celular.
-- Estrutura persuasiva focada na dor e na solução, sem promessas absurdas.
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.1;
+            font-weight: 700;
+            color: var(--white-text);
+            letter-spacing: -0.03em;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons & Interactions */
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: #ffffff;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 999px;
+            /* Pill shape */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+            text-align: center;
+            width: 100%;
+            max-width: 420px;
+            letter-spacing: -0.01em;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .pulse {
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 14px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        /* Modern Details & Effects */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Shimmer Effect for Buttons */
+        .btn-cta {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-color), #047857);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+
+        .btn-cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-20deg);
+            transition: none;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            20% {
+                left: 200%;
+            }
+
+            100% {
+                left: 200%;
+            }
+        }
+
+        /* Enhanced Card Hover */
+        .id-item-row:hover,
+        .feature:hover,
+        .testimonial-card:hover,
+        .audience-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.15);
+            background: rgba(30, 30, 35, 0.8);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 120px;
+            background-color: var(--bg-body);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Dynamic Background Gradient */
+        .hero-bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.15) 0%, rgba(5, 5, 5, 0) 60%);
+            z-index: 1;
+            pointer-events: none;
+            animation: pulse-glow 6s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero .headline {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            /* Responsive typography */
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+            background: linear-gradient(to right, #ffffff, #d1d5db);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .subheadline {
+            color: var(--text-muted);
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            margin-bottom: 3rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* Sections */
+        /* Removing images means simplifying these to centered text layouts */
+        /* Card Styles & Glassmorphism */
+        .identification,
+        .method-explanation,
+        .benefits,
+        .target-audience,
+        .offer {
+            /* Consistent spacing */
+            padding: 80px 0;
+        }
+
+        .identification {
+            background-color: #0d0d0d;
+        }
+
+        .id-grid-vertical {
+            display: grid;
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .id-item-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--bg-card-border);
+            backdrop-filter: blur(12px);
+            transition: transform 0.2s ease;
+        }
+
+        .id-item-row:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .id-item-row .icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .id-item-row p {
+            margin: 0;
+            color: #d1d5db;
+            font-size: 1.1rem;
+        }
+
+        /* Method Explanation Section */
+        .method-explanation {
+            padding: 60px 0;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .method-explanation .lead {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .method-features {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .method-features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid var(--bg-card-border);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        /* Benefits Section - No Image */
+        .benefits {
+            padding: 60px 0;
+            background-color: #0d0d0d;
+            text-align: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
+            background: linear-gradient(145deg, #18181b 0%, #0d0d0d 100%);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--bg-card-border);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .benefits-list li {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+        }
+
+        .benefits-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefits-list li span {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Target Audience */
+        .target-audience {
+            padding: 60px 0;
+            background: #000000;
+        }
+
+        .audience-grid {
+            display: grid;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .audience-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .audience-card {
+            padding: 40px;
+            border-radius: 24px;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+
+        .audience-card.yes {
+            background: linear-gradient(145deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 78, 59, 0.1) 100%);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .audience-card.no {
+            background: linear-gradient(145deg, rgba(239, 68, 68, 0.1) 0%, rgba(127, 29, 29, 0.1) 100%);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        /* Offer Section */
+        .offer {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #111827 0%, #000000 100%);
+            text-align: center;
+        }
+
+        .offer-card {
+            background: var(--bg-card);
+            padding: 50px 30px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price {
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .amount {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+            font-weight: 600;
+        }
+
+        .offer-features {
+            list-style: none;
+            margin-bottom: 30px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .offer-features li {
+            margin-bottom: 10px;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+        }
+
+        .offer-features li::before {
+            content: "✔️";
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #050505;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: 1fr;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--bg-card-border);
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .avatar-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .user-info h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .user-info span {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        .stars {
+            color: #F59E0B;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: #d1d5db;
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .verified-badge {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background-color: #000000;
+            text-align: center;
+            color: #6b7280;
+            border-top: 1px solid #1f2937;
+            font-size: 0.85rem;
+        }
+
+        /* Image Styles */
+        .content-img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 30px auto;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+        }
+
+        .img-pain {
+            max-width: 500px;
+            filter: grayscale(30%) contrast(1.2);
+        }
+
+        .img-hope {
+            max-width: 600px;
+        }
+
+        /* Hero Social Proof */
+        .hero-social-proof {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 10px;
+        }
+
+        .avatar-stack {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            background-color: #333;
+            margin-left: -15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #fff;
+            font-weight: bold;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .avatar-circle:first-child {
+            margin-left: 0;
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-rating {
+            color: #F59E0B;
+            letter-spacing: 1px;
+        }
+
+        /* Two Column Layouts */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .img-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .img-col img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 1100px;
+            }
+
+            .grid-2-col {
+                grid-template-columns: 1.2fr 0.8fr;
+                /* Text wider in hero usually */
+                text-align: left;
+            }
+
+            .grid-2-col.reverse {
+                grid-template-columns: 0.8fr 1.2fr;
+            }
+
+            .grid-2-col.equal {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero {
+                text-align: left;
+                padding: 100px 0;
+            }
+
+            .hero-social-proof {
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .content-img {
+                margin: 0;
+                /* Remove auto margins on desktop */
+            }
+
+            .hero .headline {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* VSL Video & Arrows */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+        }
+
+        .arrow-pointer {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            display: block;
+            margin: 0 auto 5px;
+            animation: bounce 1.5s infinite;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+            line-height: 1;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <header class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="container reveal">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h1 class="headline">Você não fuma porque quer — o cigarro virou um hábito emocional</h1>
+                <p class="subheadline" style="margin-left: auto; margin-right: auto;">Um método simples de 21
+                    dias para reduzir a ansiedade e quebrar o hábito do cigarro, sem remédios e sem sofrimento.
+                </p>
+
+                <!-- VSL Video Area -->
+                <div class="video-container">
+                    <!-- RECOMENDAÇÃO: Substitua 'seu-video.mp4' pelo arquivo real ou use um iframe do YouTube/PandaVideo -->
+                    <video controls poster="hero.png" style="width: 100%; height: auto; display: block;">
+                        <source src="Storyboard 2.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+
+                <!-- CTA -->
+                <div style="margin-top: 24px;">
+                    <span class="arrow-pointer">⬇️</span>
+                    <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">QUERO PARAR DE FUMAR AGORA</a>
+                </div>
+
+                <p style="margin-top: 15px;">
+                    <a href="#offer"
+                        style="color: var(--text-muted); font-size: 0.9rem; text-decoration: underline; opacity: 0.8;">Prefiro
+                        ler o restante da página</a>
+                </p>
+
+                <div class="hero-social-proof" style="align-items: center; justify-content: center;">
+                    <div class="avatar-stack">
+                        <div class="avatar-circle" style="background: #10B981;">RC</div>
+                        <div class="avatar-circle" style="background: #3B82F6;">ML</div>
+                        <div class="avatar-circle" style="background: #F59E0B;">AS</div>
+                        <div class="avatar-circle" style="background: #EF4444;">FA</div>
+                        <div class="avatar-circle" style="background: #8B5CF6;">+2k</div>
+                    </div>
+                    <div class="social-text">
+                        <span class="social-rating">★★★★★</span>
+                        <span>Mais de 2.154 vidas transformadas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="identification reveal">
+        <div class="container">
+            <div class="grid-2-col reverse equal">
+                <div class="img-col">
+                    <img src="teeth_damage.png" alt="Efeitos do cigarro nos dentes" class="content-img img-pain"
+                        style="max-width: 100%;">
+                </div>
+                <div class="text-col">
+                    <h2>Você se identifica com isso?</h2>
+                    <div class="id-grid-vertical">
+                        <div class="id-item-row">
+                            <div class="icon">🔄</div>
+                            <p><strong>Ciclo da frustração:</strong> Você promete que vai parar, mas a ansiedade
+                                bate… e você acaba fumando de novo.</p>
+                        </div>
+                        <div class="id-item-row">
+                            <div class="icon">🤖</div>
+                            <p><strong>Hábito automático:</strong> Acender o cigarro virou um reflexo. Você faz
+                                sem nem perceber.</p>
+                        </div>
+                        <div class="id-item-row">
+                            <div class="icon">💔</div>
+                            <p><strong>Medo de falhar:</strong> O medo de tentar e não conseguir te paralisa
+                                antes mesmo de começar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="transition-block reveal" style="padding: 100px 0; background-color: #000000;">
+        <div class="container">
+            <div class="grid-2-col">
+                <div class="text-col">
+                    <h3 style="color: #ffffff; font-size: 2rem; margin-bottom: 20px; line-height: 1.2;">Você não
+                        é fraco.<br>Você só está preso a um padrão emocional.</h3>
+                    <p style="color: #9ca3af; font-size: 1.2rem;">A indústria do tabaco lucra com a sua
+                        ansiedade. Eles desenharam o produto para viciar seu cérebro. A culpa não é sua por ter
+                        caído nisso, mas a responsabilidade de sair é.</p>
+                    <p style="color: #9ca3af; font-size: 1.2rem;">Quando você foca apenas na força de vontade,
+                        você luta contra a química. O segredo é mudar a programação.</p>
+                </div>
+                <div class="img-col">
+                    <img src="family_happiness.png" alt="Família feliz e saudável" class="content-img img-hope">
+                </div>
+            </div>
+
+
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero parar de fumar agora</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="method-explanation reveal">
+        <div class="container">
+            <h2>O QUE É O MÉTODO 21 DIAS?</h2>
+            <p class="lead">Não é mágica. É um processo passo a passo.</p>
+            <div class="method-features">
+                <div class="feature">
+                    <h3>📅 Passo a passo diário</h3>
+                    <p>Orientações simples pra aplicar um dia de cada vez, sem pressão.</p>
+                </div>
+                <div class="feature">
+                    <h3>🧠 Mentalidade e comportamento</h3>
+                    <p>Exercícios focados em reduzir a ansiedade e reprogramar o hábito do cigarro.</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 100% digital</h3>
+                    <p>Acesse pelo celular ou computador, no seu tempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits reveal">
+        <div class="container">
+            <h2>O QUE VOCÊ VAI ENCONTRAR</h2>
+
+            <ul class="benefits-list">
+                <li><span>✅</span> Um plano claro de 21 dias</li>
+                <li><span>✅</span> Técnicas para lidar com a ansiedade</li>
+                <li><span>✅</span> Orientações práticas para o dia a dia</li>
+                <li><span>✅</span> Um método que respeita seu tempo</li>
+                <li><span>✅</span> Tudo explicado de forma simples, direta e sem promessas irreais.</li>
+            </ul>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta">Quero começar o Método 21 Dias
+                    agora</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials reveal">
+        <div class="container">
+            <h2>O que estão dizendo...</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto; font-size: 1.1rem;">
+                Histórias reais de pessoas que decidiram retomar o controle.</p>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar-placeholder">RC</div>
+                        <div class="user-info">
+                            <h4>Roberto Campos</h4>
+                            <span>52 anos • Fumava há 28 anos</span>
+                            <div class="verified-badge">✓ Compra Verificada</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Para mim o cigarro era como um calmante. Eu não acreditava que
+                        essas
+                        'técnicas mentais' funcionariam. Mas no dia 12 eu percebi que não tinha acendido nenhum
+                        cigarro
+                        depois do almoço. Funciona mesmo."</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar-placeholder">ML</div>
+                        <div class="user-info">
+                            <h4>Maria Lúcia</h4>
+                            <span>47 anos • Fumava há 20 anos</span>
+                            <div class="verified-badge">✓ Compra Verificada</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Já tinha usado adesivo, chiclete, tudo. O problema é que a
+                        vontade
+                        estava na cabeça. O método me ajudou a entender meus gatilhos. Estou há 3 meses livre!"
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar-placeholder">AS</div>
+                        <div class="user-info">
+                            <h4>Antônio Silva</h4>
+                            <span>61 anos • Fumava há 40 anos</span>
+                            <div class="verified-badge">✓ Compra Verificada</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Minha neta pediu para eu parar. Comprei sem muita fé pelo
+                        preço. Mas o
+                        conteúdo vale ouro. Simples e direto."</p>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar-placeholder">FA</div>
+                        <div class="user-info">
+                            <h4>Fernanda Alves</h4>
+                            <span>39 anos • Fumava há 15 anos</span>
+                            <div class="verified-badge">✓ Compra Verificada</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"O que mais gostei foi não precisar parar de uma vez no primeiro
+                        dia.
+                        Fui diminuindo a ansiedade e quando vi, o cigarro perdeu a graça. Obrigada!"</p>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar-placeholder">JP</div>
+                        <div class="user-info">
+                            <h4>João Paulo</h4>
+                            <span>55 anos • Fumava há 35 anos</span>
+                            <div class="verified-badge">✓ Compra Verificada</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★☆</div>
+                    <p class="testimonial-text">"Muito bom. No começo achei meio simples, mas se fizer o que
+                        manda, dá
+                        resultado. Minha tosse melhorou 100% em duas semanas."</p>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar-placeholder">CR</div>
+                        <div class="user-info">
+                            <h4>Cláudia Regina</h4>
+                            <span>50 anos • Fumava há 25 anos</span>
+                            <div class="verified-badge">✓ Compra Verificada</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Me sinto outra pessoa. Mais energia, sem aquele cheiro ruim na
+                        roupa.
+                        Recomendo para todos que acham que não conseguem."</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <p style="color: #fff; margin-bottom: 20px;">Junte-se a mais de 2.000 pessoas livres do cigarro
+                </p>
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta">Quero fazer parte</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="target-audience reveal">
+        <div class="container">
+            <div class="audience-grid">
+                <div class="audience-card yes">
+                    <h3>Para quem é ✔️</h3>
+                    <ul style="list-style: none; text-align: left;">
+                        <li style="margin-bottom: 10px;">✔ Para quem sente que o cigarro virou uma muleta emocional para
+                            lidar com o estresse.</li>
+                        <li style="margin-bottom: 10px;">✔ Para quem deseja viver mais tempo para ver os filhos e netos
+                            crescerem.</li>
+                        <li style="margin-bottom: 10px;">✔ Para quem já tentou parar várias vezes, mas sempre volta
+                            quando a ansiedade bate.</li>
+                        <li style="margin-bottom: 10px;">✔ Para quem quer se livrar do cheiro ruim e recuperar o fôlego
+                            e a energia.</li>
+                        <li style="margin-bottom: 10px;">✔ Para quem busca um método natural, sem remédios caros ou
+                            efeitos colaterais.</li>
+                    </ul>
+                </div>
+                <div class="audience-card no">
+                    <h3>Para quem não é ❌</h3>
+                    <ul style="list-style: none; text-align: left;">
+                        <li style="margin-bottom: 10px;">❌ Não é para quem busca milagre sem esforço.</li>
+                        <li style="margin-bottom: 10px;">❌ Não é para quem não quer assumir a responsabilidade pela
+                            própria saúde.</li>
+                        <li style="margin-bottom: 10px;">❌ Não é para quem acha que vai parar do dia para a noite sem
+                            mudar a mente.</li>
+                        <li style="margin-bottom: 10px;">❌ Não é para quem não quer se comprometer com o
+                            processo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="offer reveal">
+        <div class="container">
+            <div class="offer-card">
+                <span
+                    style="background:#FFA500; color:#fff; padding:5px 15px; border-radius:20px; font-size:0.8rem; font-weight:bold; display:inline-block; margin-bottom:20px;">OFERTA
+                    ESPECIAL</span>
+
+                <img src="hero_book.png" alt="Livro Método 21 Dias"
+                    style="max-width: 180px; margin: 0 auto 20px auto; display: block; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+
+                <div class="price">
+                    <div style="text-decoration: line-through; color: #9ca3af; font-size: 1.2rem; margin-bottom: 5px;">
+                        De R$ 97,00</div>
+                    <span class="currency">R$</span>
+                    <span class="amount">37,00</span>
+                    <span style="display:block; font-size:0.9rem; color:#9ca3af; margin-top:5px;">pagamento
+                        único</span>
+                </div>
+                <ul class="offer-features">
+                    <li>🔒 Pagamento Seguro</li>
+                    <li>⚡ Acesso Imediato</li>
+                    <li>📖 Conteúdo Digital Completo</li>
+                </ul>
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero o Método 21 Dias
+                    Agora</a>
+                <div style="margin-top:20px; font-size:0.8rem; color:#6b7280;">
+                    <span>🔒 Compra 100% Segura</span>
+                </div>
+
+                <img src="mulher_feliz.jpg" alt="Pessoa feliz e livre do cigarro" class="content-img img-hope"
+                    style="margin-top: 40px;">
+
+                <h3 style="margin-top: 20px; color: #fff; font-size: 1.5rem;">Você não precisa lutar
+                    sozinho.<br>Você só
+                    precisa de direção.</h3>
+                <div style="margin-top: 20px;">
+                    <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero começar o Método 21
+                        Dias
+                        agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Método 21 Dias.</p>
+            <p style="margin-top:10px; font-size:0.8rem;">Este método não substitui acompanhamento médico.<br>Os
+                resultados variam de pessoa para pessoa e dependem do comprometimento com o processo.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Reveal Animation on Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+
+</body>
+
+</html>
