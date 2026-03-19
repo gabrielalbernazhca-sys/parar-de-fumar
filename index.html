@@ -78,40 +78,41 @@
         /* Buttons & Interactions */
         .btn-cta {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            background: linear-gradient(135deg, #059669, #10B981);
             color: #ffffff;
-            padding: 20px 40px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            padding: 24px 40px;
+            font-size: 1.4rem;
+            font-weight: 800;
             text-decoration: none;
             border-radius: 999px;
             /* Pill shape */
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+            box-shadow: 0 8px 20px 0 rgba(16, 185, 129, 0.5);
             text-align: center;
             width: 100%;
-            max-width: 420px;
-            letter-spacing: -0.01em;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+            letter-spacing: 0.02em;
+            border: 2px solid #34d399;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .btn-cta:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
-            filter: brightness(1.1);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.7);
+            background: linear-gradient(135deg, #10B981, #34d399);
         }
 
         .pulse {
-            animation: pulse-animation 2s infinite;
+            animation: pulse-animation 1.5s infinite;
         }
 
         @keyframes pulse-animation {
             0% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
             }
 
             70% {
-                box-shadow: 0 0 0 14px rgba(16, 185, 129, 0);
+                box-shadow: 0 0 0 25px rgba(16, 185, 129, 0);
             }
 
             100% {
@@ -148,9 +149,6 @@
         .btn-cta {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary-color), #047857);
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
             z-index: 10;
         }
 
@@ -161,10 +159,10 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
             transform: skewX(-20deg);
             transition: none;
-            animation: shimmer 3s infinite;
+            animation: shimmer 2s infinite;
         }
 
         @keyframes shimmer {
@@ -738,24 +736,25 @@
         }
 
         .arrow-pointer {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             color: var(--accent-color);
             display: block;
-            margin: 0 auto 5px;
-            animation: bounce 1.5s infinite;
-            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+            margin: 0 auto 10px;
+            animation: arrow-bounce-scale 1s infinite alternate cubic-bezier(0.5, 0, 0.5, 1);
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.8), 0 0 10px rgba(251, 191, 36, 0.5);
             line-height: 1;
+            filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.8));
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
         }
 
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
+        @keyframes arrow-bounce-scale {
+            0% {
+                transform: translateY(0) scale(1);
             }
 
-            50% {
-                transform: translateY(-12px);
+            100% {
+                transform: translateY(-20px) scale(1.15);
             }
         }
 
@@ -905,71 +904,24 @@
                     dias para reduzir a ansiedade e quebrar o hábito do cigarro, sem remédios e sem sofrimento.
                 </p>
 
-                <!-- VSL Video Area -->
-                <div class="video-container">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-                        <iframe src="https://www.youtube.com/embed/s0hAHiKf0ZI?autoplay=1&mute=1"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                <!-- CTA -->
+                <div style="margin-top: 50px;">
+                    <span class="arrow-pointer" style="display: block; text-align: center; margin-bottom: 10px;">↓ ↓ ↓ ↓
+                        ↓</span>
+                    <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">GARANTA O SEU, COMPRE AGORA</a>
+                </div>
+
+                <div class="hero-social-proof" style="align-items: center; justify-content: center; margin-top: 30px;">
+                    <div class="avatar-stack">
+                        <div class="avatar-circle" style="background: #10B981;">RC</div>
+                        <div class="avatar-circle" style="background: #3B82F6;">ML</div>
+                        <div class="avatar-circle" style="background: #F59E0B;">AS</div>
+                        <div class="avatar-circle" style="background: #EF4444;">FA</div>
+                        <div class="avatar-circle" style="background: #8B5CF6;">+2k</div>
                     </div>
-
-                    <!-- Live Comments / Social Proof -->
-                    <div class="live-comments">
-                        <div class="comments-list">
-                            <div class="comment-item">
-                                <div class="comment-avatar" style="background: #3B82F6;">MA</div>
-                                <div class="comment-content">
-                                    <div class="comment-name">Marcos Almeida <span>há 1 semana</span></div>
-                                    <div class="comment-text">Estou no dia 5. É incrível como a vontade já diminuiu
-                                        muito! 🙏</div>
-                                </div>
-                            </div>
-                            <div class="comment-item">
-                                <div class="comment-avatar" style="background: #F59E0B;">LV</div>
-                                <div class="comment-content">
-                                    <div class="comment-name">Luciana Vieira <span>há 1 mês</span></div>
-                                    <div class="comment-text">Não achei que ia funcionar depois de tentar de tudo, mas
-                                        esse método me fez abrir os olhos na forma como eu lido com a vontade de fumar.
-                                        Assisti o vídeo todo!</div>
-                                </div>
-                            </div>
-                            <div class="comment-item">
-                                <div class="comment-avatar" style="background: #10B981;">RS</div>
-                                <div class="comment-content">
-                                    <div class="comment-name">Renato Silva <span>há 2 meses</span></div>
-                                    <div class="comment-text">Cara, minha ansiedade despencou. O cigarro tá perdendo a
-                                        força finalmente. Recomendo pra quem tá duvidando!</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA -->
-                    <div style="margin-top: 24px;">
-                        <span class="arrow-pointer">⬇️</span>
-                        <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">QUERO PARAR DE FUMAR AGORA</a>
-                    </div>
-
-                    <p style="margin-top: 15px;">
-                        <a href="#offer"
-                            style="color: var(--text-muted); font-size: 0.9rem; text-decoration: underline; opacity: 0.8;">Prefiro
-                            ler o restante da página</a>
-                    </p>
-
-                    <div class="hero-social-proof" style="align-items: center; justify-content: center;">
-                        <div class="avatar-stack">
-                            <div class="avatar-circle" style="background: #10B981;">RC</div>
-                            <div class="avatar-circle" style="background: #3B82F6;">ML</div>
-                            <div class="avatar-circle" style="background: #F59E0B;">AS</div>
-                            <div class="avatar-circle" style="background: #EF4444;">FA</div>
-                            <div class="avatar-circle" style="background: #8B5CF6;">+2k</div>
-                        </div>
-                        <div class="social-text">
-                            <span class="social-rating">★★★★★</span>
-                            <span>Mais de 2.154 vidas transformadas</span>
-                        </div>
+                    <div class="social-text">
+                        <span class="social-rating">★★★★★</span>
+                        <span>Mais de 2.154 vidas transformadas</span>
                     </div>
                 </div>
             </div>
@@ -1025,7 +977,9 @@
 
 
             <div class="text-center" style="margin-top: 60px;">
-                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero parar de fumar agora</a>
+                <span class="arrow-pointer" style="display: block; text-align: center; margin-bottom: 15px;">↓ ↓ ↓ ↓
+                    ↓</span>
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">GARANTA O SEU, COMPRE AGORA</a>
             </div>
         </div>
     </section>
@@ -1064,8 +1018,9 @@
             </ul>
 
             <div class="text-center" style="margin-top: 40px;">
-                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta">Quero começar o Método 21 Dias
-                    agora</a>
+                <span class="arrow-pointer" style="display: block; text-align: center; margin-bottom: 15px;">↓ ↓ ↓ ↓
+                    ↓</span>
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">GARANTA O SEU, COMPRE AGORA</a>
             </div>
         </div>
     </section>
@@ -1178,9 +1133,11 @@
             </div>
 
             <div class="text-center" style="margin-top: 40px;">
-                <p style="color: #fff; margin-bottom: 20px;">Junte-se a mais de 2.000 pessoas livres do cigarro
+                <p style="color: #fff; margin-bottom: 30px;">Junte-se a mais de 2.000 pessoas livres do cigarro
                 </p>
-                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta">Quero fazer parte</a>
+                <span class="arrow-pointer" style="display: block; text-align: center; margin-bottom: 15px;">↓ ↓ ↓ ↓
+                    ↓</span>
+                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">GARANTA O SEU, COMPRE AGORA</a>
             </div>
         </div>
     </section>
@@ -1242,8 +1199,11 @@
                     <li>⚡ Acesso Imediato</li>
                     <li>📖 Conteúdo Digital Completo</li>
                 </ul>
-                <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero o Método 21 Dias
-                    Agora</a>
+                <div style="margin-top: 10px;">
+                    <span class="arrow-pointer" style="display: block; text-align: center; margin-bottom: 15px;">↓ ↓ ↓ ↓
+                        ↓</span>
+                    <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">GARANTA O SEU, COMPRE AGORA</a>
+                </div>
                 <div style="margin-top:20px; font-size:0.8rem; color:#6b7280;">
                     <span>🔒 Compra 100% Segura</span>
                 </div>
@@ -1254,10 +1214,10 @@
                 <h3 style="margin-top: 20px; color: #fff; font-size: 1.5rem;">Você não precisa lutar
                     sozinho.<br>Você só
                     precisa de direção.</h3>
-                <div style="margin-top: 20px;">
-                    <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">Quero começar o Método 21
-                        Dias
-                        agora</a>
+                <div style="margin-top: 40px;">
+                    <span class="arrow-pointer" style="display: block; text-align: center; margin-bottom: 15px;">↓ ↓ ↓ ↓
+                        ↓</span>
+                    <a href="https://pay.kiwify.com.br/4izXghX" class="btn-cta pulse">GARANTA O SEU, COMPRE AGORA</a>
                 </div>
             </div>
         </div>
